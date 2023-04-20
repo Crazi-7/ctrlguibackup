@@ -7,28 +7,25 @@ example.Toolbar = Class.extend({
 		this.app = app;
 		
 		
-		// Inject the UNDO Button and the callbacks
+		// Inject the zoomin
 		//
-		this.zoomInButton  = $("<button>Zoom In</button>");
-		this.html.append(this.zoomInButton);
+		this.zoomInButton  = $("#zoom-in-button");
 		this.zoomInButton.button().click($.proxy(function(){
 		      this.view.setZoom(this.view.getZoom()*0.7,true);
 		      this.app.layout();
 		},this));
 
-		// Inject the DELETE Button
+		// Inject the fit view Button
 		//
-		this.resetButton  = $("<button>1:1</button>");
-		this.html.append(this.resetButton);
+		this.resetButton  = $("#fit-button");
 		this.resetButton.button().click($.proxy(function(){
 		    this.view.setZoom(1.0, true);
             this.app.layout();
 		},this));
 		
-		// Inject the REDO Button and the callback
+		// Inject the zoombout Button and the callback
 		//
-		this.zoomOutButton  = $("<button>Zoom Out</button>");
-		this.html.append(this.zoomOutButton);
+		this.zoomOutButton  = $("#zoom-out-button");
 		this.zoomOutButton.button().click($.proxy(function(){
             this.view.setZoom(this.view.getZoom()*1.3, true);
             this.app.layout();
@@ -43,32 +40,29 @@ example.Toolbar = Class.extend({
 		
 		// Inject the UNDO Button and the callbacks
 		//
-		this.undoButton  = $("<button>Undo</button>");
-		this.html.append(this.undoButton);
-		this.undoButton.button().click($.proxy(function(){
-		       this.view.getCommandStack().undo();
-		},this)).button( "option", "disabled", true );
+				this.undoButton  = $("#undo-button");
+				this.undoButton.button().click($.proxy(function(){
+					this.view.getCommandStack().undo();
+				},this)).button( "option", "disabled", true );
 
 		// Inject the REDO Button and the callback
 		//
-		this.redoButton  = $("<button>Redo</button>");
-		this.html.append(this.redoButton);
-		this.redoButton.button().click($.proxy(function(){
-		    this.view.getCommandStack().redo();
-		},this)).button( "option", "disabled", true );
-		
-		this.delimiter  = $("<span class='toolbar_delimiter'>&nbsp;</span>");
-		this.html.append(this.delimiter);
+				this.redoButton  = $("#redo-button");
+			
+				this.redoButton.button().click($.proxy(function(){
+					this.view.getCommandStack().redo();
+				},this)).button( "option", "disabled", true );
+				
 
 		// Inject the DELETE Button
 		//
-		this.deleteButton  = $("<button>Delete</button>");
-		this.html.append(this.deleteButton);
-		this.deleteButton.button().click($.proxy(function(){
-			var node = this.view.getPrimarySelection();
-			var command= new draw2d.command.CommandDelete(node);
-			this.view.getCommandStack().execute(command);
-		},this)).button( "option", "disabled", true );
+				this.deleteButton  = $("#delete-button");
+				
+				this.deleteButton.button().click($.proxy(function(){
+					var node = this.view.getPrimarySelection();
+					var command= new draw2d.command.CommandDelete(node);
+					this.view.getCommandStack().execute(command);
+				},this)).button( "option", "disabled", true );
 	},
 
     	/**

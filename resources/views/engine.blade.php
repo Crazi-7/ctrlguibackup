@@ -80,26 +80,25 @@ document.addEventListener("DOMContentLoaded",function () {
     var msg = new draw2d.shape.note.PostIt({text: "A canvas has per default a mouse wheel zoom support.\nPress 'SHIFT' and the mouse wheel to zoom in/out."});
     app.view.add(msg, 20,20);
 
-    var greenOpAmp= new draw2d.shape.analog.OpAmp({
-           bgColor:"#a0ffa0",
-           angle:90
-        });
-    app.view.add(greenOpAmp,350,150);
-    app.view.add(new draw2d.shape.basic.Label({text:"draw2d.shape.analog.OpAmp (with setBackgroundColor(\"#A0ffA0\"))"}),500,155);
+    // var greenOpAmp= new draw2d.shape.analog.OpAmp({
+    //        bgColor:"#a0ffa0",
+    //        angle:90
+    //     });
+    // app.view.add(greenOpAmp,350,150);
+    // app.view.add(new draw2d.shape.basic.Label({text:"draw2d.shape.analog.OpAmp (with setBackgroundColor(\"#A0ffA0\"))"}),500,155);
 
-    app.view.add(new draw2d.shape.analog.ResistorBridge({x:350,y:250}));
-    app.view.add(new draw2d.shape.basic.Label({text:"draw2d.shape.analog.ResistorBridge", x:500, y:250}));
+    // app.view.add(new draw2d.shape.analog.ResistorBridge({x:350,y:250}));
+    // app.view.add(new draw2d.shape.basic.Label({text:"draw2d.shape.analog.ResistorBridge", x:500, y:250}));
 
-    app.view.add(new draw2d.shape.analog.VoltageSupplyHorizontal(),350,350);
-    app.view.add(new draw2d.shape.basic.Label({text:"draw2d.shape.analog.VoltageSupplyHorizontal"}),500,355);
+    // app.view.add(new draw2d.shape.analog.VoltageSupplyHorizontal(),350,350);
+    // app.view.add(new draw2d.shape.basic.Label({text:"draw2d.shape.analog.VoltageSupplyHorizontal"}),500,355);
 
-    var rect = new LabelRectangle({width:100, height:80});
-
-	 app.view.add( rect, 750,200);
+    var rect = new LabelRectangle({width:100, height:80}); //check if its a custom thing
+    app.view.add( rect, 750,200);
 
      
-     var reader = new draw2d.io.json.Reader();
-     reader.unmarshal(app.view, jsonDocument);
+    var reader = new draw2d.io.json.Reader();
+    reader.unmarshal(app.view, jsonDocument);
 
 	 /////////////////////////////////////////////////////////////////////
 	 // JUST ADD SOME DOCU ELEMENTS ON THE SCREEN
@@ -222,13 +221,11 @@ onTimer:function()
 
 <body id="container">
 
-   		<div id="toolbar"></div>
-   		<div id="canvas" class="" style="width:3000px; height:3000px;"></div>
-           <div id="navigation" class="">
-
-   </div>
-   <pre id="json" style="overflow:auto;position:absolute; top:10px; right:10px; width:300px;height:500px;background:white;border:1px solid gray">
-</pre>
+   	<div id="toolbar"></div>
+   	<div id="canvas" class="" style="width:3000px; height:3000px;"></div>
+    <div id="navigation" class=""></div>
+    <pre id="json" style="overflow:auto;position:absolute; top:10px; right:10px; width:300px;height:500px;background:white;border:1px solid gray">
+    </pre>
 
 </body>
 </html>

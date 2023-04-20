@@ -127,8 +127,7 @@
             </ul> 
         </nav>
     </header>
-    <iframe id="engine" src="{{route('guiEngine')}}">
-    
+    <iframe id="engine" src="{{route('guiEngine')}}" style="position:aboslute;background-repeat: no-repeat;">
     </iframe>
     <div class = "input-json">
         <textarea name="" id="json-input" cols="50" rows="40">
